@@ -18,14 +18,39 @@
         <div class="col12">
           <div class="card">
             <div class="card-header">Todo App</div>
+            <div class="card-body">
+              <form action="">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    name="txtTaskName"
+                    id="txtTaskName"
+                    class="form-control"
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="btnAddNewTask"
+                  >
+                    Add
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
+
           <div class="card mt-3">
+            <div class="card-header">
+              <button id="btnClear" class="btn btn-danger btn-sm float-end">
+                Delete
+              </button>
+            </div>
             <ul id="task-list" class="list-group list-group-flush"></ul>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="ElementləriSilməkVəDəyişmək.js"></script>
+    <script src="EventListeners.js"></script>
   </body>
 </html>
