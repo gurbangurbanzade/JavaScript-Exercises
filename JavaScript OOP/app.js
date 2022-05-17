@@ -1,14 +1,37 @@
-let sual = {
-  sualMetni: "Hansı proqramlasdirma dilidir",
-  cavabVariantlari: {
-    a: "HTML",
-    b: "JavaScript",
-    c: "CSS",
-  },
-  dogruCavab: "b",
-  cavabiYoxla: function (cavab) {
+function Sual(sualMetni, cavabVariantlari, dogruCavab) {
+  this.sualMetni = sualMetni;
+  this.cavabVariantlari = cavabVariantlari;
+  this.dogruCavab = dogruCavab;
+  this.cavbiYoxla = function (cavab) {
     return cavab === this.dogruCavab;
-  },
-};
+  };
+}
 
-console.log(sual.cavabiYoxla("b"));
+let suallar = [
+  new Sual(
+    "Hansı proqramlasdirma dilidir",
+    { a: "HTML", b: "JavaScript", c: "CSS" },
+    "b"
+  ),
+  new Sual(
+    "Hansı proqramlasdirma dilidir",
+    { a: "HTML", b: "JavaScript", c: "CSS" },
+    "b"
+  ),
+  new Sual(
+    "Hansı proqramlasdirma dilidir",
+    { a: "HTML", b: "JavaScript", c: "CSS" },
+    "b"
+  ),
+  new Sual(
+    "Hansı proqramlasdirma dilidir",
+    { a: "HTML", b: "JavaScript", c: "CSS" },
+    "b"
+  ),
+];
+
+for (let s of suallar) {
+  console.log(s.sualMetni);
+}
+
+console.log(suallar[0].cavbiYoxla("b"));
