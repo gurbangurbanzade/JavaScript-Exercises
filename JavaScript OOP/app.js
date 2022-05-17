@@ -2,10 +2,12 @@ function Sual(sualMetni, cavabVariantlari, dogruCavab) {
   this.sualMetni = sualMetni;
   this.cavabVariantlari = cavabVariantlari;
   this.dogruCavab = dogruCavab;
-  this.cavbiYoxla = function (cavab) {
-    return cavab === this.dogruCavab;
-  };
+
+  console.log(this);
 }
+Sual.prototype.cavbiYoxla = function (cavab) {
+  return cavab === this.dogruCavab;
+};
 
 let suallar = [
   new Sual(
@@ -29,9 +31,5 @@ let suallar = [
     "b"
   ),
 ];
-
-for (let s of suallar) {
-  console.log(s.sualMetni);
-}
 
 console.log(suallar[0].cavbiYoxla("b"));
