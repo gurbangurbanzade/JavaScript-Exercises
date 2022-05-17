@@ -41,6 +41,7 @@ const quiz = new Quiz(suallar);
 
 document.querySelector(".btn-start").addEventListener("click", function () {
   if (quiz.sualIndex !== quiz.suallar.length) {
+    document.querySelector(".quiz-box").classList.add("active");
     console.log(quiz.sualVer());
     quiz.sualIndex++;
   } else {
