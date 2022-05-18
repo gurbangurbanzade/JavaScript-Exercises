@@ -54,3 +54,22 @@
   color: #600f17;
   background-color: #ff959e;
 }
+
+.quiz-box .option-list .option.disabled {
+  pointer-events: none;
+}
+
+.quiz-box .next-btn {
+  opacity: 0;
+  pointer-events: none;
+
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+.quiz-box .next-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+
+  transform: scale(1);
+}
