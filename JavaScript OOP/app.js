@@ -14,8 +14,21 @@ document.querySelector(".next-btn").addEventListener("click", function () {
     document.querySelector(".next-btn").classList.remove("show");
   } else {
     console.log("sual bitdi");
+    document.querySelector(".score-box").classList.add("active");
+    document.querySelector(".quiz-box").classList.remove("active");
+    neticeniGoster(quiz.suallar.length, quiz.dogruSualSayi);
   }
 });
+document.querySelector(".btn-quit").addEventListener("click", function () {
+  window.location.reload();
+});
+document.querySelector(".btn-replay").addEventListener("click", function () {
+  quiz.sualIndex = 0;
+  quiz.dogruSualSayi = 0;
+  document.querySelector(".btn-start").click();
+  document.querySelector(".score-box").classList.remove("active");
+});
+
 const option_list = document.querySelector(".option-list");
 const correctIcon = `<div class="icon"><i class="fas fa-check"></i></div>`;
 const incorrectIcon = `<div class="icon"><i class="fas fa-times"></i></div>`;
@@ -45,6 +58,7 @@ function optionSelected(option) {
   let sual = quiz.sualVer();
   console.log(option);
   if (sual.cavbiYoxla(cavab)) {
+    quiz.dogruSualSayi += 1;
     option.classList.add("correct");
     option.insertAdjacentHTML("beforeend", correctIcon);
   } else {
@@ -60,4 +74,9 @@ function optionSelected(option) {
 function sualSayiniGoster(sualSirasi, cemSual) {
   let tag = `   <span class="badge bg-warning">${sualSirasi} / ${cemSual}</span>`;
   document.querySelector(".quiz-box .question-index").innerHTML = tag;
+}
+
+function neticeniGoster(cemSual, dogruCavab) {
+  let tag = ` Yekun olaraq ${cemSual} sualdan ${dogruCavab} suala doğru cavab verdiniz`;
+  document.querySelector(".score-box .score-text").innerHTML = tag;
 }
