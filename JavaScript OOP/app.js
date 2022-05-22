@@ -3,6 +3,7 @@ const quiz = new Quiz(suallar);
 document.querySelector(".btn-start").addEventListener("click", function () {
   document.querySelector(".quiz-box").classList.add("active");
   startTimer(10);
+  startTimerLine();
   sualGoster(quiz.sualVer());
   sualSayiniGoster(quiz.sualIndex + 1, quiz.suallar.length);
   document.querySelector(".next-btn").classList.remove("show");
@@ -11,12 +12,15 @@ document.querySelector(".next-btn").addEventListener("click", function () {
   if (quiz.sualIndex + 1 !== quiz.suallar.length) {
     quiz.sualIndex += 1;
     clearInterval(counter);
+    clearInterval(counterLine);
     startTimer(10);
+    startTimerLine();
     sualGoster(quiz.sualVer());
     sualSayiniGoster(quiz.sualIndex + 1, quiz.suallar.length);
     document.querySelector(".next-btn").classList.remove("show");
   } else {
     clearInterval(counter);
+    clearInterval(counterLine);
     document.querySelector(".score-box").classList.add("active");
     document.querySelector(".quiz-box").classList.remove("active");
     neticeniGoster(quiz.suallar.length, quiz.dogruSualSayi);
@@ -58,6 +62,7 @@ function sualGoster(sual) {
 
 function optionSelected(option) {
   clearInterval(counter);
+  clearInterval(counterLine);
   let cavab = option.querySelector("span b").textContent;
   let sual = quiz.sualVer();
   console.log(option);
@@ -103,6 +108,18 @@ function startTimer(time) {
         option.classList.add("disabled");
       }
       document.querySelector(".next-btn").classList.add("show");
+    }
+  }
+}
+let counterLine;
+function startTimerLine() {
+  let lineWidth = 0;
+  counterLine = setInterval(timer, 20);
+  function timer() {
+    lineWidth += 1;
+    document.querySelector(".time-line").style.width = lineWidth + "px";
+    if (lineWidth > 549) {
+      clearInterval(counterLine);
     }
   }
 }
