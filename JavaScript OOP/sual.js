@@ -10,22 +10,22 @@ Sual.prototype.cavbiYoxla = function (cavab) {
 let suallar = [
   new Sual(
     "1-Hansı proqramlasdirma dilidir",
-    { a: "HTML", b: "JavaScript", c: "CSS" },
+    { a: "HTML", b: "JavaScript", c: "CSS", d: "SASS" },
     "b"
   ),
   new Sual(
     "2-Hansı proqramlasdirma dilidir",
-    { a: "HTML", b: "JavaScript", c: "CSS" },
+    { a: "HTML", b: "JavaScript", c: "CSS", d: "SASS" },
     "b"
   ),
   new Sual(
     "3-Hansı proqramlasdirma dilidir",
-    { a: "HTML", b: "JavaScript", c: "CSS" },
+    { a: "HTML", b: "JavaScript", c: "CSS", d: "SASS" },
     "b"
   ),
   new Sual(
     "4-Hansı proqramlasdirma dilidir",
-    { a: "HTML", b: "JavaScript", c: "CSS" },
+    { a: "HTML", b: "JavaScript", c: "CSS", d: "SASS" },
     "b"
   ),
 ];
