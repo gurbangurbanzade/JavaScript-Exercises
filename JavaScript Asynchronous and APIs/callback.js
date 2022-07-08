@@ -1,3 +1,8 @@
+document.querySelector("#btnSearch").addEventListener("click", () => {
+  let text = document.querySelector("#txtSearch").value;
+  olkeYaz(text);
+});
+
 function olkeYaz(olkeAdi) {
   const request = new XMLHttpRequest();
   request.open("get", `https://restcountries.com/v2/name/` + olkeAdi);
@@ -16,35 +21,40 @@ function olkeYaz(olkeAdi) {
     req.send();
     req.addEventListener("load", function () {
       const data = JSON.parse(this.responseText);
-      console.log(data);
-      olke(data);
+      olke(data[0]);
+      // console.log(data[0]);
     });
   });
 }
 
 function olke(data) {
-  console.log(data);
-  for (let country of data) {
-    let card = document.querySelector(".olke");
-    let cardItem = `
-  <div class="card col-3" style="width: 18rem;">
-  <img src="${country.flags.png}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">${country.name}</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Ehali sayi: ${(
-      country.population / 1000000
-    ).toFixed(1)} milyon</li>
-    <li class="list-group-item">Paytaxt: ${country.capital}</li>
-    <li class="list-group-item">Region ${country.region}</li>
-  </ul>
- 
-</div>
-
-    `;
-    card.insertAdjacentHTML("beforeend", cardItem);
-  }
+  // console.log(data.name);
+  let html = `
+          
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4">
+                <img src="${data.flags.png}" alt="" class="img-fluid" />
+              </div>
+              <div class="col8">
+                <h3 class="card-tittle">${data.name}</h3>
+                <hr />
+                <div class="row">
+                  <div class="col-4">Əhali Sayı:</div>
+                  <div class="col-8">${1}</div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Rəsmi Dil:</div>
+                  <div class="col-8">zczxzx</div>
+                </div>
+                <div class="row">
+                  <div class="col-4">Paytaxt:</div>
+                  <div class="col-8">zczxzx</div>
+                </div>
+         
+            </div>
+          `;
+  document.querySelector("#countryDetail").innerHTML = html;
 }
 
-olkeYaz("italy");
+function qonsuOlkeler(data) {}
