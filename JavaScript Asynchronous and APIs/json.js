@@ -6,7 +6,7 @@ function olkeYaz(olkeAdi) {
   request.addEventListener("load", function () {
     const data = JSON.parse(this.responseText);
     console.log(data);
-    olke(data[0]);
+    // olke(data[0]);
   });
 }
 
@@ -25,7 +25,7 @@ function olke(data) {
     <li class="list-group-item">Paytaxt: ${data.capital}</li>
     <li class="list-group-item">Region ${data.region}</li>
   </ul>
- 
+
 </div>
 
     `;
