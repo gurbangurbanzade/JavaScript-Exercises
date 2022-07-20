@@ -10,10 +10,10 @@ function olkeYaz(olkeAdi) {
   fetch("https://restcountries.com/v2/name/" + olkeAdi)
     .then((response) => {
       console.log(response);
+      if (!response.json().ok) throw new Error("Olke tapilmadi");
       return response.json();
     })
     .then((data) => {
-      console.log(data[0]);
       let html = `
     <div class="card-body">
       <div class="row">
@@ -48,7 +48,6 @@ function olkeYaz(olkeAdi) {
       // Qonsu Olkenin ozu haqqinda melumatlar
       //
       for (let olke of qonsuOlke.borders) {
-        console.log(olke);
         fetch(`https://restcountries.com/v3.1/alpha?codes=` + olke)
           .then((response) => response.json())
           .then((olkeAxtarilan) => {
@@ -88,5 +87,6 @@ function olkeYaz(olkeAdi) {
               .insertAdjacentHTML("beforeend", html);
           });
       }
-    });
+    })
+    .catch((err) => console.log(err));
 }
