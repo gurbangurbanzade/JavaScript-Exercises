@@ -1,0 +1,8 @@
+.modal-content {
+  position: relative;
+}
+.modal-header {
+  position: absolute;
+  right: 0;
+  border-bottom: none;
+}
