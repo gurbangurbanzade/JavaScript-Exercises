@@ -10,7 +10,9 @@ function olkeYaz(olkeAdi) {
   fetch("https://restcountries.com/v2/name/" + olkeAdi)
     .then((response) => {
       console.log(response);
-      if (!response.json().ok) throw new Error("Olke tapilmadi");
+      if (!response.ok) {
+        throw new Error("Olke tapilmadi");
+      }
       return response.json();
     })
     .then((data) => {
@@ -47,6 +49,11 @@ function olkeYaz(olkeAdi) {
       //
       // Qonsu Olkenin ozu haqqinda melumatlar
       //
+
+      if (qonsuOlke.borders == undefined) {
+        console.log("salam");
+        throw new Error("Qonsu olke yoxdur");
+      }
       for (let olke of qonsuOlke.borders) {
         fetch(`https://restcountries.com/v3.1/alpha?codes=` + olke)
           .then((response) => response.json())
